@@ -104,17 +104,6 @@ export const Home: React.FC = () => {
             </Link>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-        >
-          <span className="micro-label text-white/40 vertical-text">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-gold-400 to-transparent" />
-        </motion.div>
       </section>
 
       {/* Featured Collection */}
