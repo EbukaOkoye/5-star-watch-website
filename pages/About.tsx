@@ -85,7 +85,7 @@ export const About: React.FC = () => {
             className="relative group aspect-[4/5] overflow-hidden"
           >
             <img
-              src="/home-collection-image2.jpeg"
+              src="/home-collection/homecollection-v1.jpeg"
               alt="Heritage Atelier"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[2s]"
             />

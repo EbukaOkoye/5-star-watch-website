@@ -9,8 +9,8 @@ import { ArrowRight, Award, ShieldCheck, Zap, Clock } from 'lucide-react';
 
 // Home collection display images (not products)
 const HOME_COLLECTION_IMAGES = [
-  '/home-collection-image2.jpeg',
-  '/home-colletion -image.jpeg'
+  '/home-collection/homecollection-v1.jpeg',
+  '/home-collection/homecollection-v2.jpeg'
 ];
 
 const TESTIMONIALS = [
@@ -131,7 +131,7 @@ export const Home: React.FC = () => {
       <section className="bg-stone-950 py-40 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
           <img
-            src="/hublot-gold-black.jpeg"
+            src="/hublot/hublot-gold-black.jpeg"
             alt="Luxury Watch"
             className="w-full h-full object-cover grayscale"
           />

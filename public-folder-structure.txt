@@ -284,12 +284,18 @@ FOLDERS WITH IMAGES:
     - WhatsApp Image 2026-02-25 at 2.29.11 PM.jpeg (130,849 bytes)
     - WhatsApp Image 2026-02-25 at 2.29.12 PM (1).jpeg (135,139 bytes)
     - WhatsApp Image 2026-02-25 at 2.29.12 PM.jpeg (145,113 bytes)
-    - WhatsApp Image 2026-02-25 at 2.44.51 PM (1).jpeg (169,006 bytes)
-    - WhatsApp Image 2026-02-25 at 2.44.51 PM (2).jpeg (173,780 bytes)
-    - WhatsApp Image 2026-02-25 at 2.44.51 PM.jpeg (176,433 bytes)
-    - WhatsApp Image 2026-02-25 at 2.44.52 PM (1).jpeg (168,486 bytes)
-    - WhatsApp Image 2026-02-25 at 2.44.52 PM.jpeg (163,666 bytes)
-    - WhatsApp Image 2026-02-25 at 2.44.53 PM.jpeg (161,680 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.51 PM (1).jpeg (169,006 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.51 PM (2).jpeg (173,780 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.51 PM.jpeg (176,433 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.52 PM (1).jpeg (168,486 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.52 PM.jpeg (163,666 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.53 PM.jpeg (161,680 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.51 PM (1).jpeg (169,006 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.51 PM (2).jpeg (173,780 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.51 PM.jpeg (176,433 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.52 PM (1).jpeg (168,486 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.52 PM.jpeg (163,666 bytes)
+    - WhatsApp Image 2026-02-25 at 2.29.53 PM.jpeg (161,680 bytes)
     - WhatsApp Image 2026-02-25 at 2.45.02 PM (1).jpeg (168,235 bytes)
     - WhatsApp Image 2026-02-25 at 2.45.02 PM.jpeg (167,847 bytes)
     - WhatsApp Image 2026-02-25 at 2.45.03 PM (1).jpeg (142,064 bytes)
@@ -402,3 +408,30 @@ SUMMARY:
 - Total images: 322+ (excluding videos and system files)
 - Total videos: 25
 - Note: Some folders contain duplicate images between main folders and z-old-images folder
+
+PRODUCT FOLDERS (23 folders for products):
+==========================================
+1. cartier-45k/
+2. cartier-automatic-125k/
+3. cartier-automatic-type2-125k/
+4. cartier-premium-135k/
+5. cartier-tank-120k/
+6. casio-chain-27k/
+7. gshock-75k/
+8. gshock-quality-30k/
+9. gshock-quality-40k/
+10. hublot/
+11. hublot-35k/
+12. hublot-premium-300k/
+13. jaeger-lecoultre/
+14. luxury-gold-chain/
+15. matturi-watch-35k/
+16. omega-quality-45k/
+17. patek-philippe-47k/
+18. poedagar-automatic-75k/
+19. poedagar-v1/
+20. poedagar-v2/
+21. poedagar-v3/
+22. rolex-datejust-200k/
+23. tissot-premium-125k/
+(Note: home-collection/ is for UI images, not products)

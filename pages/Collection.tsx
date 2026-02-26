@@ -339,7 +339,7 @@ export const Collection: React.FC = () => {
                   onClick={() => setCurrentPage(page)}
                   className={`w-10 h-10 rounded-lg text-sm font-medium transition-all duration-300 ${
                     currentPage === page
-                      ? 'bg-gold-400 text-white shadow-md'
+                      ? 'bg-gold-400 shadow-md text-stone-900'
                       : 'bg-white border border-stone-200 text-stone-900 hover:border-gold-400 hover:shadow-sm'
                   }`}
                 >
@@ -389,7 +389,7 @@ export const Collection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <div className="aspect-[16/10] overflow-hidden bg-stone-200 relative group">
               <img
-                src="/jaeger-green.jpeg"
+                src="/jaeger-lecoultre/jaegerlecoultre-v5.jpeg"
                 alt="Bespoke Watch Service"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[2s]"
               />
