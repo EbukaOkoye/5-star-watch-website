@@ -1,4 +1,3 @@
-
 import { Product } from './types';
 
 export const COLORS = {
@@ -15,364 +14,559 @@ export const COLORS = {
 export const PRODUCTS: Product[] = [
   // Hublot Collection
   {
-    id: 'hublot-black',
-    name: 'Hublot Classic Fusion Black',
+    id: 'hublot-classic',
+    name: 'Hublot Classic Collection',
     price: 45000,
-    description: 'The Hublot Classic Fusion Black combines ceramic and rubber for a bold, contemporary look. Swiss automatic movement ensures precision timekeeping.',
+    description: 'The Hublot Classic Fusion combines contemporary design with Swiss precision.',
     category: 'Modern',
-    material: 'Ceramic',
+    material: 'Mixed',
+    complications: ['Automatic', 'Chronograph'],
+    image: '/hublot-35k/hublot-v1.jpeg',
+    gallery: [
+      '/hublot-35k/hublot-v1.jpeg',
+      '/hublot-35k/hublot-v2.jpeg',
+      '/hublot-35k/hublot-v3.jpeg',
+      '/hublot-35k/hublot-v4.jpeg',
+      '/hublot-35k/hublot-v5.jpeg',
+      '/hublot-35k/hublot-v6.jpeg',
+      '/hublot-35k/hublot-v7.jpeg',
+      '/hublot-35k/hublot-v8.jpeg',
+      '/hublot-35k/hublot-v9.jpeg'
+    ],
+    specs: ['45mm Case Size', 'Swiss Automatic Movement'],
+    features: ['Multiple Variants', 'Swiss Movement', 'Water Resistant 50m']
+  },
+
+  // Hublot Original Collection
+  {
+    id: 'hublot-original',
+    name: 'Hublot Original Collection',
+    price: 55000,
+    description: 'Classic Hublot designs with premium materials and distinctive style.',
+    category: 'Signature',
+    material: 'Mixed',
     complications: ['Automatic'],
-    image: '/hublot-black.jpeg',
-    gallery: ['/hublot-black.jpeg'],
-    specs: ['45mm Case Size', 'Swiss Automatic Movement', 'Black Ceramic Case', 'Rubber Strap'],
-    features: ['Scratch Resistant', 'Anti-reflective Sapphire', 'Water Resistant 50m']
+    image: '/hublot/hublot-black.jpeg',
+    gallery: [
+      '/hublot/hublot-black.jpeg',
+      '/hublot/hublot-blue.jpeg',
+      '/hublot/hublot-cream.jpeg',
+      '/hublot/hublot-gold-black.jpeg',
+      '/hublot/hublot-gold.jpeg',
+      '/hublot/hublot-gray.jpeg',
+      '/hublot/hublot-green.jpeg',
+      '/hublot/hublot-grey.jpeg',
+      '/hublot/hublot-grey2.jpeg',
+      '/hublot/hublot-wood.jpeg'
+    ],
+    specs: ['44mm Case Size', 'Swiss Automatic Movement'],
+    features: ['10 Color Variants', 'Premium Materials', 'Classic Design']
   },
+
+  // Hublot Premium Collection
   {
-    id: 'hublot-blue',
-    name: 'Hublot Classic Fusion Blue',
-    price: 47000,
-    description: 'A striking blue dial Hublot with titanium case. Perfect for both formal and casual occasions with its versatile design.',
-    category: 'Modern',
-    material: 'Titanium',
-    complications: ['Automatic'],
-    image: '/hublot-blue.jpeg',
-    gallery: ['/hublot-blue.jpeg'],
-    specs: ['45mm Case Size', 'Swiss Automatic Movement', 'Titanium Case', 'Blue Dial'],
-    features: ['Lightweight Construction', 'Date Display', 'Water Resistant 50m']
-  },
-  {
-    id: 'hublot-cream',
-    name: 'Hublot Classic Fusion Cream',
-    price: 42000,
-    description: 'Elegant cream dial Hublot with polished titanium case. A sophisticated timepiece for the modern gentleman.',
-    category: 'Classic',
-    material: 'Titanium',
-    complications: ['Date'],
-    image: '/hublot-cream.jpeg',
-    gallery: ['/hublot-cream.jpeg'],
-    specs: ['42mm Case Size', 'Swiss Automatic Movement', 'Titanium Case', 'Cream Dial'],
-    features: ['Polished Finish', 'Date Window', 'Water Resistant 50m']
-  },
-  {
-    id: 'hublot-gold-black',
-    name: 'Hublot King Gold Black',
-    price: 50000,
-    description: 'Luxurious King Gold case with black ceramic bezel. The ultimate statement of power and prestige.',
-    category: 'Elite',
+    id: 'hublot-premium',
+    name: 'Hublot Premium Collection',
+    price: 300000,
+    description: 'Ultra-premium Hublot with exclusive complications.',
+    category: 'Limited',
     material: 'Gold',
     complications: ['Chronograph'],
-    image: '/hublot-gold-black.jpeg',
-    gallery: ['/hublot-gold-black.jpeg'],
-    specs: ['45mm Case Size', 'Chronograph Movement', '18K King Gold', 'Black Ceramic Bezel'],
-    features: ['Chronograph Function', 'Sapphire Crystal', 'Limited Edition']
-  },
-  {
-    id: 'hublot-gold',
-    name: 'Hublot Classic Fusion Gold',
-    price: 48000,
-    description: 'Pure luxury with 18K gold case and bracelet. A timeless piece that exudes sophistication and success.',
-    category: 'Elite',
-    material: 'Gold',
-    complications: ['Automatic'],
-    image: '/hublot-gold.jpeg',
-    gallery: ['/hublot-gold.jpeg'],
-    specs: ['45mm Case Size', 'Swiss Automatic Movement', '18K Gold Case', 'Gold Bracelet'],
-    features: ['Full Gold Construction', 'Date Display', 'Water Resistant 50m']
-  },
-  {
-    id: 'hublot-green',
-    name: 'Hublot Classic Fusion Green',
-    price: 46000,
-    description: 'Vibrant green dial Hublot that makes a bold statement. Perfect for those who dare to be different.',
-    category: 'Modern',
-    material: 'Titanium',
-    complications: ['Automatic'],
-    image: '/hublot-green.jpeg',
-    gallery: ['/hublot-green.jpeg'],
-    specs: ['45mm Case Size', 'Swiss Automatic Movement', 'Titanium Case', 'Green Dial'],
-    features: ['Bold Green Dial', 'Luminous Hands', 'Water Resistant 50m']
-  },
-  {
-    id: 'hublot-wood',
-    name: 'Hublot Classic Fusion Wood',
-    price: 49000,
-    description: 'Unique wooden bezel Hublot combining natural materials with Swiss precision. A conversation starter.',
-    category: 'Limited',
-    material: 'Wood',
-    complications: ['Automatic'],
-    image: '/hublot-wood.jpeg',
-    gallery: ['/hublot-wood.jpeg'],
-    specs: ['45mm Case Size', 'Swiss Automatic Movement', 'Wooden Bezel', 'Titanium Case'],
-    features: ['Natural Wood Elements', 'Eco-friendly', 'Limited Production']
+    image: '/hublot-premium-300k/highqualityhublot300k-v1.jpeg',
+    gallery: [
+      '/hublot-premium-300k/highqualityhublot300k-v1.jpeg',
+      '/hublot-premium-300k/highqualityhublot300k-v2.jpeg',
+      '/hublot-premium-300k/highqualityhublot300k-v3.jpeg',
+      '/hublot-premium-300k/highqualityhublot300k-v4.jpeg',
+      '/hublot-premium-300k/highqualityhublot300k-v5.jpeg'
+    ],
+    specs: ['45mm Case Size', 'Swiss Chronograph Movement', '18K King Gold'],
+    features: ['Limited Production', 'Premium Materials', 'Chronograph Function']
   },
 
   // Jaeger-LeCoultre Collection
   {
-    id: 'jaeger-black',
-    name: 'Jaeger-LeCoultre Master Black',
-    price: 44000,
-    description: 'Sophisticated black dial Jaeger with stainless steel case. The epitome of Swiss watchmaking excellence.',
-    category: 'Classic',
-    material: 'Steel',
-    complications: ['Date', 'Moonphase'],
-    image: '/jaeger-black.jpeg',
-    gallery: ['/jaeger-black.jpeg'],
-    specs: ['40mm Case Size', 'Swiss Automatic Movement', 'Stainless Steel', 'Black Dial'],
-    features: ['Moonphase Complication', 'Date Display', 'Leather Strap']
-  },
-  {
-    id: 'jaeger-blue',
-    name: 'Jaeger-LeCoultre Master Blue',
-    price: 45000,
-    description: 'Elegant blue dial Jaeger with silver case. A perfect blend of tradition and modernity.',
-    category: 'Classic',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/jaeger-blue.jpeg',
-    gallery: ['/jaeger-blue.jpeg'],
-    specs: ['40mm Case Size', 'Swiss Automatic Movement', 'Stainless Steel', 'Blue Dial'],
-    features: ['Sunray Blue Dial', 'Date Window', 'Water Resistant 50m']
-  },
-  {
-    id: 'jaeger-brown',
-    name: 'Jaeger-LeCoultre Master Brown',
-    price: 43000,
-    description: 'Warm brown dial Jaeger with rose gold accents. Perfect for autumn and winter occasions.',
-    category: 'Classic',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/jaeger-brown.jpeg',
-    gallery: ['/jaeger-brown.jpeg'],
-    specs: ['40mm Case Size', 'Swiss Automatic Movement', 'Stainless Steel', 'Brown Dial'],
-    features: ['Rose Gold Accents', 'Brown Leather Strap', 'Classic Design']
-  },
-  {
-    id: 'jaeger-green',
-    name: 'Jaeger-LeCoultre Master Green',
+    id: 'jaeger-master',
+    name: 'Jaeger-LeCoultre Master Collection',
     price: 47000,
-    description: 'Rich green dial Jaeger that captures the essence of nature. A distinctive timepiece for collectors.',
-    category: 'Signature',
+    description: 'The epitome of Swiss watchmaking excellence.',
+    category: 'Classic',
     material: 'Steel',
-    complications: ['Date', 'Moonphase'],
-    image: '/jaeger-green.jpeg',
-    gallery: ['/jaeger-green.jpeg'],
-    specs: ['40mm Case Size', 'Swiss Automatic Movement', 'Stainless Steel', 'Green Dial'],
-    features: ['Moonphase Display', 'Green Leather Strap', 'Limited Edition']
-  },
-  {
-    id: 'jaeger-orange',
-    name: 'Jaeger-LeCoultre Master Orange',
-    price: 48000,
-    description: 'Bold orange dial Jaeger that stands out in any collection. Vibrant and sophisticated.',
-    category: 'Signature',
-    material: 'Steel',
-    complications: ['Chronograph'],
-    image: '/jaeger-orange.jpeg',
-    gallery: ['/jaeger-orange.jpeg'],
-    specs: ['42mm Case Size', 'Chronograph Movement', 'Stainless Steel', 'Orange Dial'],
-    features: ['Chronograph Function', 'Orange Leather Strap', 'Sporty Elegance']
-  },
-  {
-    id: 'jaeger-red',
-    name: 'Jaeger-LeCoultre Master Red',
-    price: 49000,
-    description: 'Striking red dial Jaeger with stainless steel case. A passionate timepiece for bold personalities.',
-    category: 'Signature',
-    material: 'Steel',
-    complications: ['Chronograph'],
-    image: '/jaeger-red.jpeg',
-    gallery: ['/jaeger-red.jpeg'],
-    specs: ['42mm Case Size', 'Chronograph Movement', 'Stainless Steel', 'Red Dial'],
-    features: ['Bold Red Dial', 'Chronograph Function', 'Limited Production']
+    complications: ['Date', 'Moonphase', 'Chronograph'],
+    image: '/jaeger-lecoultre/jaeger-black.jpeg',
+    gallery: [
+      '/jaeger-lecoultre/jaeger-black.jpeg',
+      '/jaeger-lecoultre/jaeger-black2.jpeg',
+      '/jaeger-lecoultre/jaeger-blue.jpeg',
+      '/jaeger-lecoultre/jaeger-brown.jpeg',
+      '/jaeger-lecoultre/jaeger-green.jpeg',
+      '/jaeger-lecoultre/jaeger-orange.jpeg',
+      '/jaeger-lecoultre/jaeger-red.jpeg'
+    ],
+    specs: ['40mm Case Size', 'Swiss Automatic Movement'],
+    features: ['Moonphase Complication', 'Chronograph Function', 'Date Display']
   },
 
   // Luxury Gold Chain Collection
   {
-    id: 'luxury-gold-chain-green',
-    name: 'Luxury Gold Chain Green',
-    price: 38000,
-    description: 'Elegant gold chain watch with green dial. Perfect blend of luxury and contemporary style.',
-    category: 'Modern',
-    material: 'Gold',
-    complications: ['Date'],
-    image: '/luxury-gold-chain-watch-green.jpeg',
-    gallery: ['/luxury-gold-chain-watch-green.jpeg'],
-    specs: ['42mm Case Size', 'Quartz Movement', 'Gold Plated', 'Green Dial'],
-    features: ['Gold Chain Bracelet', 'Green Dial', 'Date Display']
-  },
-  {
-    id: 'luxury-gold-chain-purple',
-    name: 'Luxury Gold Chain Purple',
+    id: 'luxury-gold-chain',
+    name: 'Luxury Gold Chain Collection',
     price: 40000,
-    description: 'Regal purple dial gold chain watch. A statement piece for special occasions.',
+    description: 'Elegant gold chain watches with vibrant dial colors.',
     category: 'Elite',
     material: 'Gold',
     complications: ['Date'],
-    image: '/luxury-gold-chain-watch-purple.jpeg',
-    gallery: ['/luxury-gold-chain-watch-purple.jpeg'],
-    specs: ['42mm Case Size', 'Quartz Movement', 'Gold Plated', 'Purple Dial'],
-    features: ['Purple Dial', 'Gold Chain Bracelet', 'Elegant Design']
-  },
-  {
-    id: 'luxury-gold-chain-red',
-    name: 'Luxury Gold Chain Red',
-    price: 42000,
-    description: 'Bold red dial gold chain watch. Perfect for those who love to make a statement.',
-    category: 'Elite',
-    material: 'Gold',
-    complications: ['Date'],
-    image: '/luxury-gold-chain-watch-red.jpeg',
-    gallery: ['/luxury-gold-chain-watch-red.jpeg'],
-    specs: ['42mm Case Size', 'Quartz Movement', 'Gold Plated', 'Red Dial'],
-    features: ['Vibrant Red Dial', 'Gold Chain Bracelet', 'Eye-catching Design']
+    image: '/luxury-gold-chain/luxury-gold-chain-watch-green.jpeg',
+    gallery: [
+      '/luxury-gold-chain/luxury-gold-chain-watch-green.jpeg',
+      '/luxury-gold-chain/luxury-gold-chain-watch-purple.jpeg',
+      '/luxury-gold-chain/luxury-gold-chain-watch-red.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Quartz Movement', 'Gold Plated'],
+    features: ['Gold Chain Bracelet', 'Multiple Dial Colors', 'Date Display']
   },
 
   // Poedagar V1 Collection
   {
-    id: 'poedagarv1-black',
-    name: 'Poedagar V1 Black Classic',
-    price: 32000,
-    description: 'Timeless black dial Poedagar with stainless steel bracelet. Affordable luxury at its finest.',
-    category: 'Classic',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/poedagarv1-black.jpeg',
-    gallery: ['/poedagarv1-black.jpeg'],
-    specs: ['44mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Black Dial'],
-    features: ['Automatic Movement', 'Date Display', 'Water Resistant 30m']
-  },
-  {
-    id: 'poedagarv1-brown',
-    name: 'Poedagar V1 Brown Leather',
-    price: 31000,
-    description: 'Classic brown leather strap Poedagar. Perfect for business and formal occasions.',
-    category: 'Classic',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/poedagarv1-brown.jpeg',
-    gallery: ['/poedagarv1-brown.jpeg'],
-    specs: ['42mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Brown Dial'],
-    features: ['Brown Leather Strap', 'Classic Design', 'Date Display']
-  },
-  {
-    id: 'poedagarv1-darkblue',
-    name: 'Poedagar V1 Dark Blue',
-    price: 33000,
-    description: 'Sophisticated dark blue dial Poedagar with stainless steel bracelet. Modern and versatile.',
-    category: 'Modern',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/poedagarv1-darkblue.jpeg',
-    gallery: ['/poedagarv1-darkblue.jpeg'],
-    specs: ['44mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Blue Dial'],
-    features: ['Dark Blue Dial', 'Luminous Hands', 'Water Resistant 30m']
-  },
-  {
-    id: 'poedagarv1-green',
-    name: 'Poedagar V1 Green',
-    price: 34000,
-    description: 'Distinctive green dial Poedagar. A fresh take on classic watch design.',
-    category: 'Modern',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/poedagarv1-green.jpeg',
-    gallery: ['/poedagarv1-green.jpeg'],
-    specs: ['42mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Green Dial'],
-    features: ['Green Dial', 'Date Display', 'Affordable Luxury']
-  },
-  {
-    id: 'poedagarv1-teal',
-    name: 'Poedagar V1 Teal',
+    id: 'poedagar-classic',
+    name: 'Poedagar Classic Collection',
     price: 35000,
-    description: 'Unique teal dial Poedagar that stands out. Perfect for the modern individualist.',
-    category: 'Signature',
-    material: 'Steel',
+    description: 'Affordable luxury with multiple design variants.',
+    category: 'Modern',
+    material: 'Mixed',
     complications: ['Date'],
-    image: '/poedagarv1-teal.jpeg',
-    gallery: ['/poedagarv1-teal.jpeg'],
-    specs: ['42mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Teal Dial'],
-    features: ['Unique Teal Dial', 'Date Display', 'Sporty Design']
-  },
-  {
-    id: 'poedagarv1-woodbrown',
-    name: 'Poedagar V1 Wood Brown',
-    price: 36000,
-    description: 'Natural wood dial Poedagar combining traditional craftsmanship with modern design.',
-    category: 'Limited',
-    material: 'Wood',
-    complications: ['Date'],
-    image: '/poedagarv1-woodbrown.jpeg',
-    gallery: ['/poedagarv1-woodbrown.jpeg'],
-    specs: ['44mm Case Size', 'Japanese Automatic', 'Wood Dial', 'Stainless Steel'],
-    features: ['Wood Dial', 'Natural Materials', 'Limited Production']
+    image: '/poedagar-v1/poedagarv1-black.jpeg',
+    gallery: [
+      '/poedagar-v1/poedagarv1-black.jpeg',
+      '/poedagar-v1/poedagarv1-black2.jpeg',
+      '/poedagar-v1/poedagarv1-black3.jpeg',
+      '/poedagar-v1/poedagarv1-black4.jpeg',
+      '/poedagar-v1/poedagarv1-brown.jpeg',
+      '/poedagar-v1/poedagarv1-coal.jpeg',
+      '/poedagar-v1/poedagarv1-darkblue.jpeg',
+      '/poedagar-v1/poedagarv1-darkblue2.jpeg',
+      '/poedagar-v1/poedagarv1-darkbrown.jpeg',
+      '/poedagar-v1/poedagarv1-green.jpeg',
+      '/poedagar-v1/poedagarv1-lightbrown.jpeg',
+      '/poedagar-v1/poedagarv1-teal.jpeg',
+      '/poedagar-v1/poedagarv1-woodbrown.jpeg',
+      '/poedagar-v1/poedagarv1-woodbrown2.jpeg',
+      '/poedagar-v1/poedagarv1-woodbrown3.jpeg'
+    ],
+    specs: ['42-44mm Case Size', 'Japanese Automatic Movement'],
+    features: ['15 Design Variants', 'Date Display', 'Water Resistant 30m']
   },
 
   // Poedagar V2 Chain Collection
   {
-    id: 'poedagarv2-chain-green',
-    name: 'Poedagar V2 Chain Green',
-    price: 37000,
-    description: 'Elegant green dial with chain bracelet. Perfect blend of sporty and sophisticated.',
-    category: 'Modern',
-    material: 'Steel',
-    complications: ['Date'],
-    image: '/poedagarv2-chain-green.jpeg',
-    gallery: ['/poedagarv2-chain-green.jpeg'],
-    specs: ['45mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Green Dial'],
-    features: ['Chain Bracelet', 'Green Dial', 'Date Display']
-  },
-  {
-    id: 'poedagarv2-chain-purple',
-    name: 'Poedagar V2 Chain Purple',
+    id: 'poedagar-chain',
+    name: 'Poedagar Chain Collection',
     price: 39000,
-    description: 'Regal purple dial with chain bracelet. A statement piece for confident individuals.',
+    description: 'Modern chain bracelet watches with vibrant dial colors.',
     category: 'Signature',
     material: 'Steel',
     complications: ['Date'],
-    image: '/poedagarv2-chain-purple.jpeg',
-    gallery: ['/poedagarv2-chain-purple.jpeg'],
-    specs: ['45mm Case Size', 'Japanese Automatic', 'Stainless Steel', 'Purple Dial'],
-    features: ['Purple Dial', 'Chain Bracelet', 'Bold Design']
+    image: '/poedagar-v2/poedagarv2-chain-green2.jpeg',
+    gallery: [
+      '/poedagar-v2/poedagarv2-chain-green.jpeg',
+      '/poedagar-v2/poedagarv2-chain-green2.jpeg',
+      '/poedagar-v2/poedagarv2-chain-purple.jpeg',
+      '/poedagar-v2/poedagarv2-chain-purple2.jpeg',
+      '/poedagar-v2/poedagarv2-chain-purple3.jpeg',
+      '/poedagar-v2/poedagarv2-chain-red2.jpeg'
+    ],
+    specs: ['45-48mm Case Size', 'Japanese Automatic Movement'],
+    features: ['Chain Bracelet', '6 Color Variants', 'Date Display']
   },
 
-  // Poedagar V3 Collection
+  // Poedagar V3 Sport Collection
   {
-    id: 'poedagarv3-black',
-    name: 'Poedagar V3 Black Sport',
-    price: 40000,
-    description: 'Sporty black design with modern aesthetics. Built for active lifestyles.',
-    category: 'Modern',
-    material: 'Steel',
-    complications: ['Chronograph'],
-    image: '/poedagarv3-black.jpeg',
-    gallery: ['/poedagarv3-black.jpeg'],
-    specs: ['48mm Case Size', 'Chronograph Movement', 'Stainless Steel', 'Black Dial'],
-    features: ['Chronograph Function', 'Sporty Design', 'Water Resistant 50m']
-  },
-  {
-    id: 'poedagarv3-blue',
-    name: 'Poedagar V3 Blue Sport',
+    id: 'poedagar-sport',
+    name: 'Poedagar Sport Collection',
     price: 42000,
-    description: 'Dynamic blue sport watch with chronograph functionality. Perfect for adventure seekers.',
-    category: 'Modern',
-    material: 'Steel',
+    description: 'Dynamic sport watches with chronograph functionality.',
+    category: 'Sport',
+    material: 'Mixed',
     complications: ['Chronograph'],
-    image: '/poedagarv3-blue.jpeg',
-    gallery: ['/poedagarv3-blue.jpeg'],
-    specs: ['48mm Case Size', 'Chronograph Movement', 'Stainless Steel', 'Blue Dial'],
-    features: ['Blue Dial', 'Chronograph', 'Sporty Aesthetic']
+    image: '/poedagar-v3/poedagarv3-blue.jpeg',
+    gallery: [
+      '/poedagar-v3/poedagarv3-black.jpeg',
+      '/poedagar-v3/poedagarv3-blue.jpeg',
+      '/poedagar-v3/poedagarv3-gold.jpeg'
+    ],
+    specs: ['48mm Case Size', 'Chronograph Movement'],
+    features: ['Chronograph Function', '3 Style Variants', 'Water Resistant 50m']
   },
+
+  // Poedagar Automatic Collection
   {
-    id: 'poedagarv3-gold',
-    name: 'Poedagar V3 Gold Elite',
-    price: 50000,
-    description: 'Luxurious gold-plated sport watch. The perfect combination of elegance and functionality.',
+    id: 'poedagar-automatic',
+    name: 'Poedagar Automatic Collection',
+    price: 75000,
+    description: 'Premium Poedagar with automatic movement.',
+    category: 'Elite',
+    material: 'Steel',
+    complications: ['Automatic'],
+    image: '/poedagar-automatic-75k/PEODAGAR Automatic movement 75k.jpeg',
+    gallery: [
+      '/poedagar-automatic-75k/PEODAGAR Automatic movement 75k.jpeg',
+      '/poedagar-automatic-75k/PEODAGAR Automatic movement2 75k.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Japanese Automatic Movement'],
+    features: ['Premium Movement', 'Enhanced Design', 'Great Value']
+  },
+
+  // Cartier Classic Collection
+  {
+    id: 'cartier-classic',
+    name: 'Cartier Classic Collection',
+    price: 45000,
+    description: 'Timeless elegance meets modern design.',
+    category: 'Classic',
+    material: 'Gold',
+    complications: ['Automatic'],
+    image: '/cartier-45k/cartier-v1.jpeg',
+    gallery: [
+      '/cartier-45k/cartier-v1.jpeg',
+      '/cartier-45k/cartier-v2.jpeg',
+      '/cartier-45k/cartier-v3.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Classic Design', 'Date Display', 'Water Resistant 30m']
+  },
+
+  // Cartier Automatic Collection
+  {
+    id: 'cartier-automatic',
+    name: 'Cartier Automatic Collection',
+    price: 125000,
+    description: 'Premium Cartier automatic movement timepiece.',
     category: 'Elite',
     material: 'Gold',
-    complications: ['Chronograph'],
-    image: '/poedagarv3-gold.jpeg',
-    gallery: ['/poedagarv3-gold.jpeg'],
-    specs: ['48mm Case Size', 'Chronograph Movement', 'Gold Plated', 'Gold Dial'],
-    features: ['Gold Plating', 'Chronograph Function', 'Premium Finish']
+    complications: ['Automatic'],
+    image: '/cartier-automatic-125k/cartier-automatic-v1.jpeg',
+    gallery: [
+      '/cartier-automatic-125k/cartier-automatic-v1.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v2.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v3.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v4.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v5.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v6.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v7.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v8.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v9.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v10.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v11.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v12.jpeg',
+      '/cartier-automatic-125k/cartier-automatic-v13.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Premium Movement', 'Date Display', 'Luxury Finish']
+  },
+
+  // Cartier Tank Collection
+  {
+    id: 'cartier-tank',
+    name: 'Cartier Tank Collection',
+    price: 120000,
+    description: 'Iconic Tank design with premium materials.',
+    category: 'Limited',
+    material: 'Gold',
+    complications: ['Date'],
+    image: '/cartier-tank-120k/highqualitycartiertank120k-v1.jpeg',
+    gallery: [
+      '/cartier-tank-120k/highqualitycartiertank120k-v1.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v2.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v3.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v4.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v5.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v6.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v7.jpeg',
+      '/cartier-tank-120k/highqualitycartiertank120k-v8.jpeg'
+    ],
+    specs: ['40mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Iconic Design', 'Premium Materials', 'Limited Production']
+  },
+
+  // Cartier Premium Collection
+  {
+    id: 'cartier-premium',
+    name: 'Cartier Premium Collection',
+    price: 135000,
+    description: 'Exclusive Cartier timepiece with premium materials.',
+    category: 'Limited',
+    material: 'Gold',
+    complications: ['Automatic'],
+    image: '/cartier-premium-135k/highqualitycartier135k-v1.jpeg',
+    gallery: [
+      '/cartier-premium-135k/highqualitycartier135k-v1.jpeg',
+      '/cartier-premium-135k/highqualitycartier135k-v2.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Limited Edition', 'Premium Materials', 'Exclusive Design']
+  },
+
+  // Cartier Automatic Type 2 Collection
+  {
+    id: 'cartier-automatic-type2',
+    name: 'Cartier Automatic Type 2 Collection',
+    price: 125000,
+    description: 'Advanced Cartier automatic with enhanced complications.',
+    category: 'Elite',
+    material: 'Gold',
+    complications: ['Automatic'],
+    image: '/cartier-automatic-type2-125k/cartier-automatic-type2-v1.jpeg',
+    gallery: [
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v1.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v2.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v3.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v4.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v5.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v6.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v7.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v8.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v9.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v10.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v11.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v12.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v13.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v14.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v15.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v16.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v17.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v18.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v19.jpeg',
+      '/cartier-automatic-type2-125k/cartier-automatic-type2-v20.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Advanced Movement', 'Multiple Complications', 'Premium Finish']
+  },
+
+  // Casio Chain Collection
+  {
+    id: 'casio-chain',
+    name: 'Casio Chain Collection',
+    price: 27000,
+    description: 'Modern Casio chain watch with digital functionality.',
+    category: 'Modern',
+    material: 'Steel',
+    complications: ['Digital'],
+    image: '/casio-chain-27k/casiochain27k-v1.jpeg',
+    gallery: [
+      '/casio-chain-27k/casiochain27k-v1.jpeg',
+      '/casio-chain-27k/casiochain27k-v2.jpeg',
+      '/casio-chain-27k/casiochain27k-v3.jpeg',
+      '/casio-chain-27k/casiochain27k-v4.jpeg',
+      '/casio-chain-27k/casiochain27k-v5.jpeg',
+      '/casio-chain-27k/casiochain27k-v6.jpeg'
+    ],
+    specs: ['45mm Case Size', 'Digital Movement', 'Stainless Steel'],
+    features: ['Digital Display', 'Chain Bracelet', 'Modern Design']
+  },
+
+  // G-Shock Collection
+  {
+    id: 'gshock',
+    name: 'G-Shock Collection',
+    price: 75000,
+    description: 'Rugged G-Shock built for extreme conditions.',
+    category: 'Sport',
+    material: 'Resin',
+    complications: ['Digital'],
+    image: '/gshock-75k/gshock75k-v1.jpeg',
+    gallery: [
+      '/gshock-75k/gshock75k-v1.jpeg',
+      '/gshock-75k/gshock75k-v2.jpeg',
+      '/gshock-75k/gshock75k-v3.jpeg',
+      '/gshock-75k/gshock75k-v4.jpeg',
+      '/gshock-75k/gshock75k-v5.jpeg',
+      '/gshock-75k/gshock75k-v6.jpeg',
+      '/gshock-75k/gshock75k-v7.jpeg',
+      '/gshock-75k/gshock75k-v8.jpeg',
+      '/gshock-75k/gshock75k-v9.jpeg',
+      '/gshock-75k/gshock75k-v10.jpeg',
+      '/gshock-75k/gshock75k-v11.jpeg',
+      '/gshock-75k/gshock75k-v12.jpeg',
+      '/gshock-75k/gshock75k-v13.jpeg',
+      '/gshock-75k/gshock75k-v14.jpeg',
+      '/gshock-75k/gshock75k-v15.jpeg',
+      '/gshock-75k/gshock75k-v16.jpeg',
+      '/gshock-75k/gshock75k-v17.jpeg',
+      '/gshock-75k/gshock75k-v18.jpeg',
+      '/gshock-75k/gshock75k-v19.jpeg'
+    ],
+    specs: ['55mm Case Size', 'Digital Movement', 'Shock Resistant'],
+    features: ['Shock Resistant', 'Water Resistant', 'Digital Functions']
+  },
+
+  // G-Shock Quality Collection
+  {
+    id: 'gshock-quality',
+    name: 'G-Shock Quality Collection',
+    price: 40000,
+    description: 'Premium G-Shock with enhanced features.',
+    category: 'Sport',
+    material: 'Resin',
+    complications: ['Digital'],
+    image: '/gshock-quality-40k/highqualitygshock40k-v1.jpeg',
+    gallery: [
+      '/gshock-quality-40k/highqualitygshock40k-v1.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v2.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v3.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v4.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v5.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v6.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v7.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v8.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v9.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v10.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v11.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v12.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v13.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v14.jpeg',
+      '/gshock-quality-40k/highqualitygshock40k-v15.jpeg'
+    ],
+    specs: ['50mm Case Size', 'Digital Movement', 'Shock Resistant'],
+    features: ['Enhanced Display', 'Multiple Functions', 'Premium Build']
+  },
+
+  // G-Shock Sport Collection
+  {
+    id: 'gshock-sport',
+    name: 'G-Shock Sport Collection',
+    price: 30000,
+    description: 'Affordable G-Shock with essential features.',
+    category: 'Sport',
+    material: 'Resin',
+    complications: ['Digital'],
+    image: '/gshock-quality-30k/highqualitygshock30k-v1.jpeg',
+    gallery: [
+      '/gshock-quality-30k/highqualitygshock30k-v1.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v2.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v3.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v4.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v5.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v6.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v7.jpeg',
+      '/gshock-quality-30k/highqualitygshock30k-v8.jpeg'
+    ],
+    specs: ['48mm Case Size', 'Digital Movement', 'Shock Resistant'],
+    features: ['Essential Functions', 'Sport Design', 'Great Value']
+  },
+
+  // Matturi Watch Collection
+  {
+    id: 'matturi',
+    name: 'Matturi Watch Collection',
+    price: 35000,
+    description: 'Elegant Matturi timepiece with refined design.',
+    category: 'Classic',
+    material: 'Steel',
+    complications: ['Automatic'],
+    image: '/matturi-watch-35k/matturiwatch35k-v1.jpeg',
+    gallery: [
+      '/matturi-watch-35k/matturiwatch35k-v1.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v2.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v3.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v4.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v5.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v6.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v7.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v8.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v9.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v10.jpeg',
+      '/matturi-watch-35k/matturiwatch35k-v11.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Japanese Automatic Movement'],
+    features: ['Elegant Design', 'Date Display', 'Water Resistant 50m']
+  },
+
+  // Omega Quality Collection
+  {
+    id: 'omega-quality',
+    name: 'Omega Quality Collection',
+    price: 45000,
+    description: 'Premium Omega timepiece with Swiss precision.',
+    category: 'Classic',
+    material: 'Steel',
+    complications: ['Automatic'],
+    image: '/omega-quality-45k/omega-v1.jpeg',
+    gallery: [
+      '/omega-quality-45k/omega-v1.jpeg',
+      '/omega-quality-45k/omega-v2.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Swiss Automatic Movement'],
+    features: ['Swiss Movement', 'Premium Materials', 'Timeless Design']
+  },
+
+  // Patek Philippe Classic Collection
+  {
+    id: 'patek-philippe-classic',
+    name: 'Patek Philippe Classic Collection',
+    price: 47000,
+    description: 'The pinnacle of Swiss watchmaking excellence.',
+    category: 'Elite',
+    material: 'Gold',
+    complications: ['Automatic'],
+    image: '/patek-philippe-47k/patek-philippe-v1.jpeg',
+    gallery: [
+      '/patek-philippe-47k/patek-philippe-v1.jpeg',
+      '/patek-philippe-47k/patek-philippe-v2.jpeg',
+      '/patek-philippe-47k/patek-philippe-v3.jpeg',
+      '/patek-philippe-47k/patek-philippe-v4.jpeg'
+    ],
+    specs: ['40mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Iconic Brand', 'Investment Piece', 'Date Display']
+  },
+
+  // Rolex Datejust Collection
+  {
+    id: 'rolex-datejust',
+    name: 'Rolex Datejust Collection',
+    price: 200000,
+    description: 'The ultimate investment timepiece.',
+    category: 'Limited',
+    material: 'Gold',
+    complications: ['Automatic'],
+    image: '/rolex-datejust-200k/rolex-datejust-v1.jpeg',
+    gallery: [
+      '/rolex-datejust-200k/rolex-datejust-v1.jpeg',
+      '/rolex-datejust-200k/rolex-datejust-v2.jpeg',
+      '/rolex-datejust-200k/rolex-datejust-v3.jpeg'
+    ],
+    specs: ['36mm Case Size', 'Swiss Automatic Movement', '18K Gold'],
+    features: ['Iconic Design', 'Investment Value', 'Datejust Function']
+  },
+
+  // Tissot Premium Collection
+  {
+    id: 'tissot-premium',
+    name: 'Tissot Premium Collection',
+    price: 125000,
+    description: 'Premium Tissot automatic movement with Swiss precision.',
+    category: 'Elite',
+    material: 'Steel',
+    complications: ['Automatic'],
+    image: '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v1.jpeg',
+    gallery: [
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v1.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v2.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v3.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v4.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v5.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v6.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v7.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v8.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v9.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v10.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v11.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v12.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v13.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v14.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v15.jpeg',
+      '/tissot-premium-125k/highqualitytissotautomaticmovement125k-v16.jpeg'
+    ],
+    specs: ['42mm Case Size', 'Swiss Automatic Movement'],
+    features: ['Swiss Movement', 'Premium Materials', 'Limited Edition']
   }
 ];

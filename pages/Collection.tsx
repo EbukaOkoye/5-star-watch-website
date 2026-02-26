@@ -1,9 +1,9 @@
 
 import React, { useState, useMemo } from 'react';
 import { ProductCard } from '../components/ProductCard';
-import { PRODUCTS } from '../constants';
+import { PRODUCTS } from '../constants'
 import { motion, AnimatePresence } from 'framer-motion';
-import { SlidersHorizontal, X, ChevronDown, Search } from 'lucide-react';
+import { SlidersHorizontal, X, ChevronDown, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Collection: React.FC = () => {
   const [typeFilter, setTypeFilter] = useState('All');
@@ -12,6 +12,9 @@ export const Collection: React.FC = () => {
   const [sortBy, setSortBy] = useState('Featured');
   const [isRefineOpen, setIsRefineOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const productsPerPage = 9;
 
   const productTypes = ['All', 'Hublot', 'Jaeger-LeCoultre', 'Luxury Gold Chain', 'Poedagar'];
   const materials = ['All', 'Gold', 'Steel', 'Titanium', 'Ceramic', 'Wood'];
@@ -54,13 +57,26 @@ export const Collection: React.FC = () => {
     return result;
   }, [typeFilter, materialFilter, complicationFilter, sortBy, searchQuery]);
 
+  // Pagination logic
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
   const resetFilters = () => {
     setTypeFilter('All');
     setMaterialFilter('All');
     setComplicationFilter('All');
     setSortBy('Featured');
     setSearchQuery('');
+    setCurrentPage(1);
   };
+
+  // Update current page when filters change
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [typeFilter, materialFilter, complicationFilter, sortBy, searchQuery]);
 
   const activeFiltersCount = [
     materialFilter !== 'All',
@@ -298,10 +314,56 @@ export const Collection: React.FC = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product) => (
+            {currentProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </AnimatePresence>
+        </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-16">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-200 bg-white text-stone-900 hover:border-gold-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-sm"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              <span className="text-sm font-medium">Previous</span>
+            </button>
+
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`w-10 h-10 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    currentPage === page
+                      ? 'bg-gold-400 text-white shadow-md'
+                      : 'bg-white border border-stone-200 text-stone-900 hover:border-gold-400 hover:shadow-sm'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-200 bg-white text-stone-900 hover:border-gold-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-sm"
+            >
+              <span className="text-sm font-medium">Next</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
+        {/* Results Info */}
+        <div className="text-center mt-8">
+          <p className="text-sm text-stone-500">
+            Showing {startIndex + 1}-{Math.min(endIndex, filteredProducts.length)} of {filteredProducts.length} timepieces
+          </p>
         </div>
 
         {filteredProducts.length === 0 && (
