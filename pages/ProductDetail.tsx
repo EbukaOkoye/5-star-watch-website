@@ -12,15 +12,29 @@ export const ProductDetail: React.FC = () => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const product = PRODUCTS.find(p => p.id === id);
-  const [activeImage, setActiveImage] = useState(product?.image);
+
+  // Get image index from URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const imageIndex = parseInt(urlParams.get('img') || '0');
+
+  const [activeImage, setActiveImage] = useState(
+    product?.gallery[imageIndex] || product?.image
+  );
   const [quantity, setQuantity] = useState(1);
 
   if (!product) {
     return <div className="pt-40 text-center">Product not found.</div>;
   }
 
+  const handleImageClick = (img: string, index: number) => {
+    setActiveImage(img);
+    // Update URL with image parameter
+    const newUrl = `${window.location.pathname}?img=${index}`;
+    window.history.pushState({}, '', newUrl);
+  };
+
   const handleBuyNow = () => {
-    addToCart(product, quantity);
+    addToCart(product, quantity, activeImage);
     navigate('/checkout');
   };
 
@@ -41,10 +55,10 @@ export const ProductDetail: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             <div className="aspect-[4/5] overflow-hidden bg-white relative group">
               <AnimatePresence mode="wait">
-                <motion.img 
+                <motion.img
                   key={activeImage}
-                  src={activeImage} 
-                  alt={product.name} 
+                  src={activeImage}
+                  alt={product.name}
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
@@ -55,9 +69,9 @@ export const ProductDetail: React.FC = () => {
             </div>
             <div className="grid grid-cols-4 gap-6">
               {product.gallery.map((img, idx) => (
-                <button 
-                  key={idx} 
-                  onClick={() => setActiveImage(img)}
+                <button
+                  key={idx}
+                  onClick={() => handleImageClick(img, idx)}
                   className={`aspect-square overflow-hidden border-2 transition-all duration-500 ${activeImage === img ? 'border-gold-400 scale-95' : 'border-transparent hover:border-gold-200'}`}
                 >
                   <img src={img} alt={`${product.name} ${idx}`} className="w-full h-full object-cover" />
@@ -76,7 +90,7 @@ export const ProductDetail: React.FC = () => {
               <p className="micro-label text-gold-400 mb-6">{product.category}</p>
               <h1 className="text-5xl md:text-6xl serif-title text-stone-900 mb-8 leading-tight">{product.name}</h1>
               <p className="text-3xl serif-title text-gold-400 mb-12">₦{product.price.toLocaleString()}</p>
-              
+
               <p className="text-stone-500 leading-relaxed mb-12 text-lg font-light">
                 {product.description}
               </p>
@@ -91,9 +105,9 @@ export const ProductDetail: React.FC = () => {
                     <Plus className="w-4 h-4" />
                   </button>
                 </div>
-                <Button fullWidth onClick={() => addToCart(product, quantity)}>Add To Bag</Button>
+                <Button fullWidth onClick={() => addToCart(product, quantity, activeImage)}>Add To Bag</Button>
               </div>
-              
+
               <Button variant="secondary" fullWidth className="mb-16" onClick={handleBuyNow}>Instant Checkout</Button>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 py-8 border-y border-gold-200">
@@ -129,4 +143,3 @@ export const ProductDetail: React.FC = () => {
     </div>
   );
 };
-

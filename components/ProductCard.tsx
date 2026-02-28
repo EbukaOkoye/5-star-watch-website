@@ -13,25 +13,25 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="group relative"
     >
       <Link to={`/product/${product.id}`} className="block relative overflow-hidden aspect-[4/5] bg-gold-50">
-        <img 
-          src={product.image} 
+        <img
+          src={product.image}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-[2s] cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-700" />
-        
-        <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white">
-          <button 
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-0 transition-transform duration-500 bg-white md:translate-y-full md:group-hover:translate-y-0">
+          <button
             onClick={(e) => {
               e.preventDefault();
-              addToCart(product);
+              addToCart(product, 1, product.image);
             }}
             className="w-full py-3 text-[10px] tracking-[0.3em] uppercase font-bold text-stone-900 hover:text-gold-400 transition-colors"
           >
@@ -39,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </button>
         </div>
       </Link>
-      
+
       <div className="pt-6 text-center">
         <p className="micro-label text-gold-400 mb-2">{product.category}</p>
         <h3 className="text-lg serif-title text-stone-900 mb-1">{product.name}</h3>

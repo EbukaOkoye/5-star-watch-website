@@ -16,26 +16,26 @@ const HOME_COLLECTION_IMAGES = [
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Adebayo O.",
-    model: "Royal Chronograph Gold Edition",
-    text: "The craftsmanship is unparalleled. My Royal Chronograph is more than a watch; it's a piece of art that commands respect in every room I enter."
+    name: "Chief Adekunle R.",
+    model: "Hublot Premium Collection",
+    text: "The Hublot Premium 300k is the pinnacle of luxury. Every detail speaks excellence. When I enter a boardroom, this timepiece commands respect before I even speak."
   },
   {
     id: 2,
-    name: "Sarah J.",
-    model: "Midnight Obsidian Automatic",
-    text: "Minimalist perfection. It’s rare to find a timepiece that manages to be both strikingly modern and timelessly elegant. It hasn't left my wrist."
+    name: "Barrister Fatima A.",
+    model: "Rolex Datejust Collection",
+    text: "My Rolex Datejust 200k isn't just a watch—it's an investment. The craftsmanship and prestige are unmatched. Truly the crown jewel of my collection."
   },
   {
     id: 3,
-    name: "Dr. Emmanuel K.",
-    model: "Platinum Sovereign Tourbillon",
-    text: "The precision is staggering. As a collector, I appreciate the technical mastery behind the tourbillon. Truly the apex of my collection."
+    name: "Engr. Ibrahim K.",
+    model: "Patek Philippe Automatic Collection",
+    text: "Owning a Patek Philippe Automatic 140k is owning a piece of history. The precision and exclusivity are simply unparalleled. Worth every naira."
   }
 ];
 
 export const Home: React.FC = () => {
-  const featuredProducts = PRODUCTS.slice(0, 3);
+  const featuredProducts = PRODUCTS;
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentHomeImage, setCurrentHomeImage] = useState(0);
   const { scrollY } = useScroll();
@@ -111,15 +111,12 @@ export const Home: React.FC = () => {
         <div className="luxury-container">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
             <div className="max-w-2xl">
-              <p className="micro-label text-gold-400 mb-6">Curated Selection</p>
-              <h2 className="text-5xl md:text-7xl serif-title text-stone-900 leading-tight">Signature Pieces</h2>
+              <p className="micro-label text-gold-400 mb-6">Complete Collection</p>
+              <h2 className="text-5xl md:text-7xl serif-title text-stone-900 leading-tight">All Timepieces</h2>
             </div>
-            <Link to="/collection" className="group flex items-center gap-3 text-stone-900 micro-label hover:text-gold-400 transition-colors">
-              View All <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
             {featuredProducts.map((product, idx) => (
               <ProductCard key={product.id} product={product} />
             ))}

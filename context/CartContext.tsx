@@ -4,7 +4,7 @@ import { Product, CartItem } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product, quantity?: number) => void;
+  addToCart: (product: Product, quantity?: number, selectedImage?: string) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -24,15 +24,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('luxury_cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = useCallback((product: Product, quantity: number = 1) => {
+  const addToCart = useCallback((product: Product, quantity: number = 1, selectedImage?: string) => {
     setCart(prev => {
       const existing = prev.find(item => item.id === product.id);
       if (existing) {
-        return prev.map(item => 
-          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+        return prev.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + quantity, selectedImage: selectedImage || item.selectedImage } : item
         );
       }
-      return [...prev, { ...product, quantity }];
+      return [...prev, { ...product, quantity, selectedImage }];
     });
   }, []);
 
@@ -45,7 +45,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeFromCart(productId);
       return;
     }
-    setCart(prev => prev.map(item => 
+    setCart(prev => prev.map(item =>
       item.id === productId ? { ...item, quantity } : item
     ));
   }, [removeFromCart]);
@@ -58,8 +58,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ 
-      cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal, itemCount 
+    <CartContext.Provider value={{
+      cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal, itemCount
     }}>
       {children}
     </CartContext.Provider>

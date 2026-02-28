@@ -15,6 +15,57 @@ export const Checkout: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
+
+    // Get form data
+    const formData = new FormData(e.currentTarget);
+    const customerName = formData.get('fullName') as string;
+    const customerEmail = formData.get('email') as string;
+    const customerAddress = formData.get('street') as string;
+    const customerCity = formData.get('city') as string;
+    const customerPostal = formData.get('postal') as string;
+
+    // Generate reference links for each product with selected image
+    const referenceLinks = cart.map((item, index) => {
+      // Find the image index in the gallery
+      const imageIndex = item.selectedImage ? item.gallery.findIndex(img => img === item.selectedImage) : 0;
+      const imageParam = imageIndex > 0 ? `?img=${imageIndex}` : '';
+      const baseUrl = `${window.location.origin}/product/${item.id}${imageParam}`;
+      return `${index + 1}. ${item.name} - ₦${item.price.toLocaleString()} - ${baseUrl}`;
+    }).join('\n');
+
+    // Create WhatsApp message
+    const whatsappMessage = `🛍️ *NEW ORDER - 5 STAR LUXURY WATCHES* 🛍️
+
+👤 *Customer Information:*
+• Name: ${customerName}
+• Email: ${customerEmail}
+• Address: ${customerAddress}, ${customerCity}, ${customerPostal}
+
+📦 *Order Details:*
+${cart.map((item, index) => `
+${index + 1}. ${item.name}
+   • Price: ₦${item.price.toLocaleString()}
+   • Quantity: ${item.quantity}
+   • Subtotal: ₦${(item.price * item.quantity).toLocaleString()}`).join('\n')}
+
+💰 *Order Summary:*
+• Subtotal: ₦${subtotal.toLocaleString()}
+• Tax (7.5%): ₦${(subtotal * 0.075).toLocaleString()}
+• Total: ₦${totalWithTax.toLocaleString()}
+
+🔗 *Product Reference Links:*
+${referenceLinks}
+
+📱 *Order ID:* #LX-${Math.floor(Math.random() * 90000) + 10000}
+📅 *Date:* ${new Date().toLocaleDateString()}
+
+---
+*This order was placed via the website checkout system.*`;
+
+    // Send to WhatsApp
+    const whatsappUrl = `https://wa.me/2349046143330?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+
     setTimeout(() => {
       setIsProcessing(false);
       setIsSuccess(true);
@@ -37,7 +88,7 @@ export const Checkout: React.FC = () => {
           </div>
           <h1 className="text-5xl serif-title mb-8 text-stone-900">Order Confirmed</h1>
           <p className="text-stone-500 mb-12 font-light text-lg leading-relaxed">
-            Thank you for your acquisition. Your order <span className="text-stone-900 font-bold">#LX-{Math.floor(Math.random() * 90000) + 10000}</span> is being meticulously prepared for shipment. A confirmation email has been sent to your inbox.
+            Thank you for your acquisition. Your order <span className="text-stone-900 font-bold">#LX-{Math.floor(Math.random() * 90000) + 10000}</span> is being meticulously prepared for shipment. Order details have been sent to our WhatsApp business line for immediate processing. A confirmation email has been sent to your inbox.
           </p>
           <Button onClick={() => navigate('/')}>Return to Atelier</Button>
         </motion.div>
@@ -48,7 +99,7 @@ export const Checkout: React.FC = () => {
   return (
     <div className="pt-40 pb-40 bg-gold-100 min-h-screen">
       <div className="luxury-container">
-        <button 
+        <button
           onClick={() => navigate('/cart')}
           className="flex items-center gap-2 micro-label text-stone-400 hover:text-gold-400 transition-colors mb-12"
         >
@@ -60,7 +111,7 @@ export const Checkout: React.FC = () => {
           <p className="micro-label text-gold-400 mb-4">Secure Checkout</p>
           <h1 className="text-5xl md:text-6xl serif-title text-stone-900">Finalize Purchase</h1>
         </div>
-        
+
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-20">
           <div className="lg:col-span-7 space-y-16">
             {/* Customer Info */}
@@ -72,11 +123,11 @@ export const Checkout: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="micro-label text-stone-400 text-[9px]">Full Name</label>
-                  <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="John Doe" />
+                  <input required type="text" name="fullName" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="John Doe" />
                 </div>
                 <div className="space-y-3">
                   <label className="micro-label text-stone-400 text-[9px]">Email Address</label>
-                  <input required type="email" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="john@example.com" />
+                  <input required type="email" name="email" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="john@example.com" />
                 </div>
               </div>
             </section>
@@ -90,49 +141,48 @@ export const Checkout: React.FC = () => {
               <div className="space-y-8">
                 <div className="space-y-3">
                   <label className="micro-label text-stone-400 text-[9px]">Street Address</label>
-                  <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="123 Luxury Way" />
+                  <input required type="text" name="street" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="123 Luxury Way" />
                 </div>
                 <div className="grid grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="micro-label text-stone-400 text-[9px]">City</label>
-                    <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="Lagos" />
+                    <input required type="text" name="city" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="Lagos" />
                   </div>
                   <div className="space-y-3">
                     <label className="micro-label text-stone-400 text-[9px]">Postal Code</label>
-                    <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="100001" />
+                    <input required type="text" name="postal" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="100001" />
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Payment */}
+            {/* Payment Notice */}
             <section className="bg-white p-10 border border-gold-200 shadow-sm">
               <h2 className="micro-label text-stone-900 mb-10 flex items-center gap-4">
                 <span className="w-8 h-8 bg-stone-950 text-white flex items-center justify-center text-[10px] font-bold">03</span>
-                Payment Method
+                Payment Information
               </h2>
-              <div className="space-y-8">
-                <div className="flex items-center justify-between p-4 border border-gold-400 bg-gold-50/50">
-                  <div className="flex items-center gap-4">
-                    <CreditCard className="w-5 h-5 text-gold-400" />
-                    <span className="text-sm font-bold text-stone-900">Credit / Debit Card</span>
+              <div className="space-y-6">
+                <div className="bg-gold-50 border border-gold-200 p-6 rounded-lg">
+                  <div className="flex items-center gap-4 mb-4">
+                    <ShieldCheck className="w-6 h-6 text-gold-400" />
+                    <span className="text-lg font-bold text-stone-900">Payment via WhatsApp</span>
                   </div>
-                  <Lock className="w-4 h-4 text-stone-400" />
-                </div>
-                
-                <div className="space-y-8">
-                  <div className="space-y-3">
-                    <label className="micro-label text-stone-400 text-[9px]">Card Number</label>
-                    <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="0000 0000 0000 0000" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="micro-label text-stone-400 text-[9px]">Expiry Date</label>
-                      <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="MM / YY" />
+                  <p className="text-stone-600 leading-relaxed">
+                    Payment details will be coordinated directly with our business representative via WhatsApp message after order confirmation. This ensures secure, personalized payment processing and allows for any special requests or customization discussions.
+                  </p>
+                  <div className="mt-6 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
+                      <span className="text-sm text-stone-700">Secure payment coordination</span>
                     </div>
-                    <div className="space-y-3">
-                      <label className="micro-label text-stone-400 text-[9px]">CVV</label>
-                      <input required type="text" className="w-full bg-gold-50 border border-gold-200 p-4 outline-none focus:border-gold-400 transition-colors font-light" placeholder="000" />
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
+                      <span className="text-sm text-stone-700">Personalized service</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
+                      <span className="text-sm text-stone-700">Direct business contact</span>
                     </div>
                   </div>
                 </div>
@@ -160,7 +210,7 @@ export const Checkout: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="border-t border-white/10 pt-8 space-y-4">
                   <div className="flex justify-between text-stone-400 text-sm font-light">
                     <span>Shipping</span>
@@ -173,7 +223,7 @@ export const Checkout: React.FC = () => {
                 </div>
 
                 <Button type="submit" fullWidth className="mt-12" disabled={isProcessing}>
-                  {isProcessing ? 'Authorizing...' : 'Finalize Purchase'}
+                  {isProcessing ? 'Sending Order...' : 'Send Order to WhatsApp'}
                 </Button>
 
                 <div className="mt-10 flex flex-col items-center gap-4">
@@ -201,4 +251,3 @@ export const Checkout: React.FC = () => {
     </div>
   );
 };
-
