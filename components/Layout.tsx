@@ -133,8 +133,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 transition={{ delay: 0.5 }}
                 className="pt-12 border-t border-gold-200"
               >
-                 <p className="micro-label text-gold-400 mb-4">Concierge</p>
-                 <p className="text-lg text-stone-600">+234 800 LUXURY 01</p>
+                 <p className="micro-label text-gold-400 mb-4">Contact</p>
+                 <p className="text-lg text-stone-600">+234 810 379 6277</p>
                  <p className="text-sm text-stone-500">concierge@5starluxury.com.ng</p>
               </motion.div>
             </div>
@@ -167,12 +167,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </div>
 
             <div>
-              <h5 className="micro-label mb-10 text-gold-400">Assistance</h5>
+              <h5 className="micro-label mb-10 text-gold-400">Contact</h5>
               <ul className="space-y-5 text-sm">
-                <li><Link to="/terms" className="text-stone-400 hover:text-white transition-colors">Terms of Service</Link></li>
-                <li><Link to="/privacy" className="text-stone-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><a href="#" className="text-stone-400 hover:text-white transition-colors">Bespoke Orders</a></li>
-                <li><a href="#" className="text-stone-400 hover:text-white transition-colors">Global Warranty</a></li>
+                <li><a href="tel:+2348103796277" className="text-stone-400 hover:text-white transition-colors">+234 810 379 6277</a></li>
+                <li><a href="mailto:concierge@5starluxury.com.ng" className="text-stone-400 hover:text-white transition-colors">concierge@5starluxury.com.ng</a></li>
+                <li><Link to="/contact" className="text-stone-400 hover:text-white transition-colors">Visit Showroom</Link></li>
+                <li><a href="https://wa.me/2348103796277" className="text-stone-400 hover:text-white transition-colors">WhatsApp</a></li>
               </ul>
             </div>
 

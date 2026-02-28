@@ -29,7 +29,8 @@ export const Checkout: React.FC = () => {
       // Find the image index in the gallery
       const imageIndex = item.selectedImage ? item.gallery.findIndex(img => img === item.selectedImage) : 0;
       const imageParam = imageIndex > 0 ? `?img=${imageIndex}` : '';
-      const baseUrl = `${window.location.origin}/product/${item.id}${imageParam}`;
+      // Get production URL dynamically with fallback
+      const baseUrl = `${window.location.origin}/#/product/${item.id}${imageParam}`;
       return `${index + 1}. ${item.name} - ₦${item.price.toLocaleString()} - ${baseUrl}`;
     }).join('\n');
 
@@ -63,7 +64,7 @@ ${referenceLinks}
 *This order was placed via the website checkout system.*`;
 
     // Send to WhatsApp
-    const whatsappUrl = `https://wa.me/2349046143330?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/2348103796277?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
 
     setTimeout(() => {

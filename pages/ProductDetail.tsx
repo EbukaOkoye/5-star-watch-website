@@ -13,8 +13,8 @@ export const ProductDetail: React.FC = () => {
   const { addToCart } = useCart();
   const product = PRODUCTS.find(p => p.id === id);
 
-  // Get image index from URL parameter
-  const urlParams = new URLSearchParams(window.location.search);
+  // Get image index from URL parameter for HashRouter
+  const urlParams = new URLSearchParams(window.location.hash.split('?')[1] || '');
   const imageIndex = parseInt(urlParams.get('img') || '0');
 
   const [activeImage, setActiveImage] = useState(
@@ -28,9 +28,9 @@ export const ProductDetail: React.FC = () => {
 
   const handleImageClick = (img: string, index: number) => {
     setActiveImage(img);
-    // Update URL with image parameter
-    const newUrl = `${window.location.pathname}?img=${index}`;
-    window.history.pushState({}, '', newUrl);
+    // Update URL with image parameter for HashRouter
+    const newUrl = `#/product/${id}?img=${index}`;
+    window.location.hash = newUrl.replace('#', '');
   };
 
   const handleBuyNow = () => {
