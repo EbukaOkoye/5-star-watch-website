@@ -2,29 +2,30 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'white';
   fullWidth?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  variant = 'primary', 
-  fullWidth = false, 
-  className = '', 
-  ...props 
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'primary',
+  fullWidth = false,
+  className = '',
+  ...props
 }) => {
   const baseStyles = 'px-10 py-4 text-[10px] tracking-[0.3em] uppercase transition-all duration-500 font-bold disabled:opacity-50 relative overflow-hidden group';
-  
+
   const variants = {
     primary: 'bg-stone-950 text-white hover:bg-gold-400 shadow-xl',
     secondary: 'bg-gold-400 text-white hover:bg-stone-950',
-    outline: 'bg-transparent border border-stone-200 text-stone-900 hover:border-gold-400 hover:text-gold-400'
+    outline: 'bg-transparent border border-stone-200 text-stone-900 hover:border-gold-400 hover:text-gold-400',
+    white: 'bg-white text-stone-900 hover:bg-gold-50 border border-gold-200'
   };
 
   const widthStyle = fullWidth ? 'w-full' : 'w-auto';
 
   return (
-    <button 
+    <button
       className={`${baseStyles} ${variants[variant]} ${widthStyle} ${className}`}
       {...props}
     >

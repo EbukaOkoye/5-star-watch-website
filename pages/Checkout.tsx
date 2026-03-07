@@ -52,7 +52,13 @@ ${index + 1}. ${item.name}
 💰 *Order Summary:*
 • Subtotal: ₦${subtotal.toLocaleString()}
 • Tax (7.5%): ₦${(subtotal * 0.075).toLocaleString()}
-• Total: ₦${totalWithTax.toLocaleString()}
+• Delivery Fee: ₦${deliveryFee.toLocaleString()}
+• Grand Total: ₦${grandTotal.toLocaleString()}
+
+💳 *Payment Information:*
+• Payment Method: Payment on Delivery
+• Delivery Fee: ₦4,000 (included in total)
+• Payment Plan: Customer pays upon delivery
 
 🔗 *Product Reference Links:*
 ${referenceLinks}
@@ -62,6 +68,53 @@ ${referenceLinks}
 
 ---
 *This order was placed via the website checkout system.*`;
+
+    // Send to Google Sheets
+    const sendToGoogleSheets = async (orderData: any) => {
+      try {
+        // Google Apps Script Web App URL (replace with your actual URL)
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwUHrN5w9H30pwJJ8T2RzrouNYbNHdG76Wxkod9dRrHvQelYIV3xC9oEn9ievehC5F58w/exec';
+
+        const response = await fetch(scriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(orderData),
+          mode: 'no-cors'
+        });
+
+        console.log('Order sent to Google Sheets');
+      } catch (error) {
+        console.error('Error saving to Google Sheets:', error);
+        // Continue with WhatsApp even if Google Sheets fails
+      }
+    };
+
+    // Prepare order data for Google Sheets
+    const orderData = {
+      orderId: `LX-${Math.floor(Math.random() * 90000) + 10000}`,
+      date: new Date().toISOString(),
+      customerName,
+      customerEmail,
+      customerAddress: `${customerAddress}, ${customerCity}, ${customerPostal}`,
+      orderItems: cart.map(item => ({
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        subtotal: item.price * item.quantity,
+        selectedImage: item.selectedImage || item.image
+      })),
+      subtotal,
+      tax: subtotal * 0.075,
+      deliveryFee,
+      grandTotal,
+      paymentMethod: 'Payment on Delivery',
+      referenceLinks
+    };
+
+    // Send to Google Sheets
+    sendToGoogleSheets(orderData);
 
     // Send to WhatsApp
     const whatsappUrl = `https://wa.me/2348103796277?text=${encodeURIComponent(whatsappMessage)}`;
@@ -75,6 +128,8 @@ ${referenceLinks}
   };
 
   const totalWithTax = subtotal * 1.075;
+  const deliveryFee = 4000; // ₦4,000 delivery fee
+  const grandTotal = totalWithTax + deliveryFee;
 
   if (isSuccess) {
     return (
@@ -167,23 +222,26 @@ ${referenceLinks}
                 <div className="bg-gold-50 border border-gold-200 p-6 rounded-lg">
                   <div className="flex items-center gap-4 mb-4">
                     <ShieldCheck className="w-6 h-6 text-gold-400" />
-                    <span className="text-lg font-bold text-stone-900">Payment via WhatsApp</span>
+                    <span className="text-lg font-bold text-stone-900">Payment on Delivery</span>
                   </div>
-                  <p className="text-stone-600 leading-relaxed">
+                  <p className="text-stone-600 leading-relaxed mb-6">
                     Payment details will be coordinated directly with our business representative via WhatsApp message after order confirmation. This ensures secure, personalized payment processing and allows for any special requests or customization discussions.
                   </p>
-                  <div className="mt-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
-                      <span className="text-sm text-stone-700">Secure payment coordination</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
-                      <span className="text-sm text-stone-700">Personalized service</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
-                      <span className="text-sm text-stone-700">Direct business contact</span>
+                  <div className="bg-white p-4 rounded-lg border border-gold-200">
+                    <h4 className="font-bold text-stone-900 mb-3">Payment Details:</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
+                        <span className="text-sm text-stone-700"><strong>Delivery Fee:</strong> ₦4,000 (applied to all orders)</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
+                        <span className="text-sm text-stone-700"><strong>Payment Method:</strong> Cash on Delivery</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-gold-400 rounded-full"></div>
+                        <span className="text-sm text-stone-700"><strong>Payment Plan:</strong> Pay upon receipt of items</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -214,16 +272,24 @@ ${referenceLinks}
 
                 <div className="border-t border-white/10 pt-8 space-y-4">
                   <div className="flex justify-between text-stone-400 text-sm font-light">
-                    <span>Shipping</span>
-                    <span className="text-gold-400 uppercase tracking-widest text-[10px] font-bold">Complimentary</span>
+                    <span>Subtotal</span>
+                    <span>₦{subtotal.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between text-stone-400 text-sm font-light">
+                    <span>Tax (7.5%)</span>
+                    <span>₦{(subtotal * 0.075).toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between text-stone-400 text-sm font-light">
+                    <span>Delivery Fee</span>
+                    <span>₦{deliveryFee.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-end">
                     <span className="serif-title text-2xl text-white">Grand Total</span>
-                    <span className="serif-title text-4xl text-gold-400">₦{totalWithTax.toLocaleString()}</span>
+                    <span className="serif-title text-4xl text-gold-400">₦{grandTotal.toLocaleString()}</span>
                   </div>
                 </div>
 
-                <Button type="submit" fullWidth className="mt-12" disabled={isProcessing}>
+                <Button type="submit" fullWidth className="mt-12" variant="white" disabled={isProcessing}>
                   {isProcessing ? 'Sending Order...' : 'Send Order to WhatsApp'}
                 </Button>
 
