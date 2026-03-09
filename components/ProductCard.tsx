@@ -2,16 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../types';
-import { useCart } from '../context/CartContext';
 import { motion } from 'framer-motion';
+import { ProductCardActions } from './ProductCardActions';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addToCart } = useCart();
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,16 +25,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         />
         <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-700" />
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-0 transition-transform duration-500 bg-white md:translate-y-full md:group-hover:translate-y-0">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              addToCart(product, 1, product.image);
-            }}
-            className="w-full py-3 text-[10px] tracking-[0.3em] uppercase font-bold text-stone-900 hover:text-gold-400 transition-colors"
-          >
-            Add to Cart
-          </button>
+        <div className="absolute bottom-0 left-0 right-0  translate-y-0 transition-transform duration-500  md:translate-y-full md:group-hover:translate-y-0">
+          <ProductCardActions product={product} />
         </div>
       </Link>
 
