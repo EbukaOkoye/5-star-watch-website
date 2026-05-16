@@ -7,7 +7,7 @@ import { PRODUCTS } from '../constants';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Award, ShieldCheck, Zap, Clock } from 'lucide-react';
 
-// Home collection display images (not products)
+// Home collection display images (not products).
 const HOME_COLLECTION_IMAGES = [
   '/home-collection/homecollection-v1.jpeg',
   '/home-collection/homecollection-v2.jpeg'
